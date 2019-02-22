@@ -1,50 +1,35 @@
 import './Content.scss';
 
-import React, { PureComponent } from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 
-export class Container extends PureComponent {
-    static propTypes = {
-        box: PropTypes.bool,
-        className: PropTypes.string,
-    };
+export const Container = function(props) {
+    const { box, className, ...other } = props;
 
-    render() {
-        const { box, className, ...other } = this.props;
+    const containerClasses = classNames(
+        {
+            'content-box': box,
+        },
+        className
+    );
 
-        const containerClasses = classNames(
-            {
-                'content-box': box,
-            },
-            className
-        );
+    return (
+        <Grid container className={containerClasses} {...other}/>
+    );
+};
 
-        return (
-            <Grid container className={containerClasses} {...other}/>
-        );
-    }
-}
+export const Item = function(props) {
+    const { noSpace, className, ...other } = props;
 
-export class Item extends PureComponent {
-    static propTypes = {
-        noSpace: PropTypes.bool,
-        className: PropTypes.string,
-    };
+    const itemClasses = classNames(
+        {
+            'content-item': !noSpace,
+        },
+        className
+    );
 
-    render() {
-        const { noSpace, className, ...other } = this.props;
-
-        const itemClasses = classNames(
-            {
-                'content-item': !noSpace,
-            },
-            className
-        );
-
-        return (
-            <Grid item className={itemClasses} {...other} />
-        );
-    }
-}
+    return (
+        <Grid item className={itemClasses} {...other} />
+    );
+};
