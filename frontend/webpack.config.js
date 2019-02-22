@@ -3,6 +3,7 @@ const path = require('path'),
     MiniCssExtractPlugin = require("mini-css-extract-plugin"),
     UglifyJsPlugin = require("uglifyjs-webpack-plugin"),
     OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
+    tinyPngWebpackPlugin = require('tinypng-webpack-plugin'),
     devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -86,5 +87,8 @@ module.exports = {
             filename: '[name].css',
             chunkFilename: '[id].css',
         }),
+        new tinyPngWebpackPlugin({
+            key:"btm7DN0jvTPrxkd0jMGLvFpBG38NBbKy"
+        })
     ],
 };
