@@ -44,7 +44,6 @@ import ${componentName} from 'components/${componentName}';
 
 function mapStateToProps(state, ownProps) {
     return {
-        //отвечает за то что будет в props компонента из store
         ...ownProps,
         ${nameLowerCase}: state.${nameLowerCase},
     }
@@ -52,7 +51,6 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, props) {
     return {
-        //отвечает за то что будет в props компонента из actions
         ...props,
         testSigningIn: (data) => dispatch(testSigningIn(data)),
     }
