@@ -11,19 +11,27 @@ fs.mkdirSync(path.resolve(__dirname, '..', 'src', 'components', componentName));
 
 const componentCode = `import './${componentName}.scss';
 
-import React, { PureComponent } from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 
-class ${componentName} extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-  
-    render() {
-        return (
-            <div className="${nameLowerCase}">${componentName}</div>
-        );
-    }
+const ${componentName} = function(props) {
+    //props
+    const [myProps] = props;
+    //state
+    const [name, setName] = useState(null);
+    //mount and update effect
+    useEffect(function {
+        /* DidMount */
+        
+        return function() {
+            /* Unmount */
+        }
+    }, []);
+    
+    return (
+        <Fragment>
+            /* context */
+        </Fragment>
+    );
 }
 
 export default ${componentName};`;
