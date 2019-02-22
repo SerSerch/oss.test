@@ -1,0 +1,65 @@
+.menu {
+  &__caption._small {
+    flex-grow: 1;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+  }
+  &__button._left {
+    margin-left: -16px;
+    margin-right: 10px;
+  }
+  &__button._right {
+    margin-right: -16px;
+  }
+}
+
+.logo {
+  &._navtop {
+    width: 134px;
+    height: 24px;
+    fill: #161616;
+  }
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.user {
+  display: flex;
+  justify-content: right;
+  width: 225px;
+  height: 40px;
+  &__info {
+    width: 130px;
+    padding-right: 11px;
+    box-sizing: border-box;
+    text-align: right;
+  }
+  &__image {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    box-sizing: border-box;
+  }
+}
+
+.paragraph {
+  &._email {
+    color: #8d8c8c;
+  }
+}
+
+.mobile-menu {
+  width: 250px;
+}
+
+@import "media";

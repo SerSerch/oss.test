@@ -1,0 +1,42 @@
+@import "../../sass/vars";
+.footer {
+  background-color: $s-color;
+  box-sizing: border-box;
+  padding: 13px 0 22px;
+  &__divider {
+    padding: 12px 15px 5px;
+  }
+  &__link {
+    padding: 4px 0;
+    text-align: right;
+  }
+  &__line-contacts {
+    padding: 7px 0 14px;
+  }
+  &__contacts {
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  &__icon {
+    float: left;
+  }
+  &__soc-box {
+    display: flex;
+  }
+  &__soc {
+    padding-left: 22px;
+  }
+  &__last {
+    padding: 6px 15px;
+  }
+}
+
+.logo {
+  &._navbot {
+    width: 134px;
+    height: 24px;
+    fill: $s-text-color;
+  }
+}
+
+@import "media";

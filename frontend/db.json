@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "serserch",
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "autor": 1,
+      "name": "My product 1",
+      "img": "/img/product.jpg",
+      "description": "Small good",
+      "detailed": "This is a wonderful little product",
+      "date": "2019-02-22T15:44:02.101Z",
+    }
+  ]
+}
