@@ -10,10 +10,12 @@ import {Container, Item} from 'components/Content';
 const ProductsInfo = function(props) {
     const {
         quantityProducts,
-        sumPriceProducts,
+        products,
         role,
         deleteAllProducts
     } = props;
+
+    let sumPriceProducts = quantityProducts && products.map(i => i.price).reduce((accum, value) => accum + value);
 
     return (
         <Container box>
