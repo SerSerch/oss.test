@@ -11,6 +11,7 @@ import {
 const initialState = {
     isLogined: false,
     user: {},
+    error: "",
 };
 
 export default handleActions({
