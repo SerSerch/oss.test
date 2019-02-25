@@ -1,7 +1,8 @@
 import { createAction } from 'redux-actions';
 
 export const getProductsAction = createAction('[Projects] getProductsAction');
-export const deleteAllProductsAction = createAction('[Projects] deleteProductsAction');
+export const deleteAllProductsAction = createAction('[Projects] deleteAllProductsAction');
+export const deleteProductAction = createAction('[Projects] deleteProductAction');
 
 export const getProducts = (params=[]) => (dispatch) => {
     fetch('/api/products?'+params.join('&'))
@@ -22,7 +23,7 @@ export const deleteAllProducts = () => (dispatch) => {
         .then(function parse(res) {
             return res.json()
         })
-        .then(function get(products) {
+        .then(function result(products) {
             products.map(function del(i) {
                 fetch('/api/products/'+i.id, {
                     method: 'delete'
@@ -34,5 +35,17 @@ export const deleteAllProducts = () => (dispatch) => {
         })
         .catch(function error(err) {
             dispatch(deleteAllProductsAction( {error: err} ))
+        });
+};
+
+export const deleteProduct = (id) => (dispatch) => {
+    fetch('/api/products/'+id, {
+        method: 'delete'
+    })
+        .then(function result() {
+            dispatch(deleteProductAction(id))
+        })
+        .catch(function error(err) {
+            dispatch(deleteProductAction( {error: err} ))
         });
 };
