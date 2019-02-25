@@ -94,7 +94,7 @@ export const themeoss = createMuiTheme({
     },
     palette: {
         primary: {
-            main: '#b7b7b7',
+            main: '#3f5cb7',
             contrastText: "#fefefe",
         },
         secondary: {

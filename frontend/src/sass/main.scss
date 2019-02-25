@@ -60,11 +60,20 @@ body {
 	&._smalled {
 		font-size: 0.75rem;
 	}
+	&._s {
+		color: $s-text-color;
+	}
+	&._link {
+		&:hover {
+			color: $s-active-color;
+		}
+	}
 }
 
 ._ellipsis {
 	overflow: hidden;
 	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 ._middle {
