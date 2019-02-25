@@ -8,7 +8,7 @@ const Footer = function(props) {
         <footer className="footer">
             <Container box>
                 <Item>
-                    &copy;
+                    &copy;SerSerch
                 </Item>
             </Container>
         </footer>
