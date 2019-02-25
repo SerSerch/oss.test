@@ -29,12 +29,14 @@ const Navtop = function(props) {
         isLogined,
         userSignIn,
         userSignOut,
-        userSignAuth
+        userSignAuth,
+        getAllProducts,
     } = props;
     const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     useEffect(function() {
         userSignAuth();
+        getAllProducts();
     }, []);
 
     return (
@@ -62,7 +64,7 @@ const Navtop = function(props) {
                                             aria-label={item.title}
                                         >
                                             <Item>
-                                                <Typography className="text _link">
+                                                <Typography className="paragraph _link _s">
                                                     {item.title}
                                                 </Typography>
                                             </Item>
@@ -75,16 +77,17 @@ const Navtop = function(props) {
                                 {isLogined ?
                                     <Fragment>
                                         <div className="user__info">
-                                            <Typography className="paragraph _small _ellipsis">
+                                            <Typography className="paragraph _small _ellipsis _s">
                                                 {user.login}
                                             </Typography>
-                                            <Typography className="paragraph _small _ellipsis _email">
+                                            <Typography className="paragraph _small _ellipsis _email _s">
                                                 {user.role}
                                             </Typography>
                                         </div>
                                         <IconButton className="user__button"
                                                     aria-label="Signout"
                                                     onClick={userSignOut}
+                                                    color="secondary"
                                         >
                                             <ExitToApp/>
                                         </IconButton>
@@ -96,6 +99,7 @@ const Navtop = function(props) {
                                         <IconButton className="user__button"
                                                     aria-label="Signin"
                                                     onClick={userSignIn}
+                                                    color="secondary"
                                         >
                                             <ExitToApp/>
                                         </IconButton>
@@ -108,6 +112,7 @@ const Navtop = function(props) {
                                             aria-owns={anchorMenu.isOpen && 'menu-appbar'}
                                             aria-haspopup="true"
                                             onClick={anchorMenu.onOpen}
+                                            color="secondary"
                                 >
                                     <MenuIcon />
                                 </IconButton>
@@ -129,24 +134,43 @@ const Navtop = function(props) {
                     className="mobile-menu"
                 >
                     <List component="nav">
-                        {user &&
                         <div className="user">
-                            <div className="user__info">
-                                <Typography className="paragraph _name _ellipsis">
-                                    {user.name}
-                                </Typography>
-                                <Typography className="paragraph _small _ellipsis _email">
-                                    {user.role}
-                                </Typography>
-                            </div>
+                            {isLogined ?
+                                <Fragment>
+                                    <div className="user__info">
+                                        <Typography className="paragraph _small _ellipsis">
+                                            {user.login}
+                                        </Typography>
+                                        <Typography className="paragraph _small _ellipsis _email">
+                                            {user.role}
+                                        </Typography>
+                                    </div>
+                                    <IconButton className="user__button"
+                                                aria-label="Signout"
+                                                onClick={userSignOut}
+                                    >
+                                        <ExitToApp/>
+                                    </IconButton>
+                                </Fragment>
+                                :
+                                <Fragment>
+                                    <div className="user__info">
+                                    </div>
+                                    <IconButton className="user__button"
+                                                aria-label="Signin"
+                                                onClick={userSignIn}
+                                    >
+                                        <ExitToApp/>
+                                    </IconButton>
+                                </Fragment>
+                            }
                         </div>
-                        }
                         <Divider />
-                        {menu.map((item, index) => (
+                        {menu.map((item, idx) => (item.access == 0 || user.role == item.access) && (
                             <Link
                                 to={item.link}
                                 className="link"
-                                key={index}
+                                key={idx}
                                 aria-label={item.title}
                             >
                                 <ListItem button className="">

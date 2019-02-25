@@ -5,6 +5,7 @@ import {
     userSignOut,
     userSignAuth,
 } from 'actions/usersAction';
+import {getProducts} from 'actions/productsAction';
 import Navtop from 'components/Navtop';
 
     const userParams = [
@@ -26,6 +27,7 @@ const mapDispatchToProps = function(dispatch, props) {
         userSignAuth: function() {return dispatch(userSignAuth())},
         userSignIn: function () {return dispatch(getUser(userParams))},
         userSignOut: function() {return dispatch(userSignOut())},
+        getAllProducts: function() {return dispatch(getProducts())},
     }
 };
 
