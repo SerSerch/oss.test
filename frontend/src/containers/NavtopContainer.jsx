@@ -1,7 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {userSigningAuth} from 'actions/users';
+import {
+    getUser,
+    userSignOut,
+    userSignAuth,
+} from 'actions/usersAction';
 import Navtop from 'components/Navtop';
+
+    const userParams = [
+        'login=serserch'
+    ];
 
 const mapStateToProps = function(state, ownProps) {
     return {
@@ -9,14 +17,15 @@ const mapStateToProps = function(state, ownProps) {
         user: state.user.user,
         error: state.user.error,
         isLogined: state.user.isLogined,
-        userId: state.user.userId,
     }
 };
 
 const mapDispatchToProps = function(dispatch, props) {
     return {
         ...props,
-        userSigningAuth: function(data) {return dispatch(userSigningAuth(data))},
+        userSignAuth: function() {return dispatch(userSignAuth())},
+        userSignIn: function () {return dispatch(getUser(userParams))},
+        userSignOut: function() {return dispatch(userSignOut())},
     }
 };
 

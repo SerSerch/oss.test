@@ -1,6 +1,6 @@
 
 import './Navtop.scss';
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -22,9 +22,20 @@ import useAnchorMenu from 'efi/useAnchorMenu';
 
 const Navtop = function(props) {
     const anchorMenu = useAnchorMenu(false);
-    const user = {name: 'serserch', role: 'admin'};
-    const { menu } = props;
+    const userl = {name: 'serserch', role: 1};
+    const {
+        menu,
+        user,
+        isLogined,
+        userSignIn,
+        userSignOut,
+        userSignAuth
+    } = props;
     const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+    useEffect(function() {
+        userSignAuth();
+    }, []);
 
     return (
         <Fragment>
@@ -43,7 +54,7 @@ const Navtop = function(props) {
                             </div>
                             <div className="grow">
                                 <Container className="section _desctop" justify="center">
-                                    {menu.map((item, idx) => (item.access == 'all' || user.role == item.access) && (
+                                    {menu.map((item, idx) => (item.access == 0 || user.role == item.access) && (
                                         <Link
                                             to={item.link}
                                             className="link"
@@ -59,23 +70,38 @@ const Navtop = function(props) {
                                     ))}
                                 </Container>
                             </div>
-                            {user &&
+
                             <div className="user section _desctop" wrap="nowrap">
-                                <div className="user__info">
-                                    <Typography className="paragraph _small _ellipsis">
-                                        {user.name}
-                                    </Typography>
-                                    <Typography className="paragraph _small _ellipsis _email">
-                                        {user.role}
-                                    </Typography>
-                                </div>
-                                <IconButton className="user__icon"
-                                            aria-label="Exit"
-                                >
-                                    <ExitToApp />
-                                </IconButton>
+                                {isLogined ?
+                                    <Fragment>
+                                        <div className="user__info">
+                                            <Typography className="paragraph _small _ellipsis">
+                                                {user.login}
+                                            </Typography>
+                                            <Typography className="paragraph _small _ellipsis _email">
+                                                {user.role}
+                                            </Typography>
+                                        </div>
+                                        <IconButton className="user__button"
+                                                    aria-label="Signout"
+                                                    onClick={userSignOut}
+                                        >
+                                            <ExitToApp/>
+                                        </IconButton>
+                                    </Fragment>
+                                    :
+                                    <Fragment>
+                                        <div className="user__info">
+                                        </div>
+                                        <IconButton className="user__button"
+                                                    aria-label="Signin"
+                                                    onClick={userSignIn}
+                                        >
+                                            <ExitToApp/>
+                                        </IconButton>
+                                    </Fragment>
+                                }
                             </div>
-                            }
                             <div className="section _mobile">
                                 <IconButton className="menu__button _right"
                                             aria-label="Menu"
