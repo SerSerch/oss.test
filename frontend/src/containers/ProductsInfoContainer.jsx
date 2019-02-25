@@ -7,7 +7,7 @@ function mapStateToProps(state, ownProps) {
     return {
         ...ownProps,
         quantityProducts: state.products.allProducts.length,
-        sumPriceProducts: state.products.sumPriceProducts,
+        products: state.products.allProducts,
         role: state.user.user.role,
     }
 }
