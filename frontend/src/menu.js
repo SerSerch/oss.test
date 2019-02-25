@@ -2,9 +2,11 @@ export default [
     {
         link:"/",
         title: "Home",
+        access: "all"
     },
     {
-        link:"/home2",
-        title: "Home2",
+        link:"/add-product",
+        title: "Add product",
+        access: "admin"
     },
 ];

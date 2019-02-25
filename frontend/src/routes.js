@@ -8,6 +8,11 @@ export default [
         exact: true
     },
     {
+        path: '/add-product',
+        component: Hello,
+        exact: true
+    },
+    {
         path: '*',
         component: Hello,
         exact: true

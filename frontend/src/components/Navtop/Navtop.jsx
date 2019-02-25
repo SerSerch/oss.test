@@ -12,32 +12,42 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
-import Tooltip from "@material-ui/core/Tooltip";
+import MenuIcon from '@material-ui/icons/Menu';
+import ExitToApp from '@material-ui/icons/ExitToApp';
 
 import {Container, Item} from 'components/Content';
-import useAnchorMenu from 'efi/useAnchorMenu';
+import Logo from './img/white-logo-new.svg';
 
-const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+import useAnchorMenu from 'efi/useAnchorMenu';
 
 const Navtop = function(props) {
     const anchorMenu = useAnchorMenu(false);
-    const user = false;
+    const user = {name: 'serserch', role: 'admin'};
     const { menu } = props;
+    const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     return (
         <Fragment>
-            <AppBar component="nav" position="fixed" color="inherit">
+            <AppBar component="nav" position="fixed">
                 <Container box>
                     <Item xs={12} noSpace>
                         <Toolbar>
-                            <div className="logo _navtop">logo</div>
+                            <div className="logo _navtop">
+                                <Link
+                                    to="/"
+                                    className="link"
+                                    aria-label="oss.test"
+                                >
+                                    <img className="logo _navtop" src={Logo} alt="oss.test"/>
+                                </Link>
+                            </div>
                             <div className="grow">
                                 <Container className="section _desctop" justify="center">
-                                    {menu.map((item, index) => (
+                                    {menu.map((item, idx) => (item.access == 'all' || user.role == item.access) && (
                                         <Link
                                             to={item.link}
                                             className="link"
-                                            key={index}
+                                            key={idx}
                                             aria-label={item.title}
                                         >
                                             <Item>
@@ -47,35 +57,23 @@ const Navtop = function(props) {
                                             </Item>
                                         </Link>
                                     ))}
-                                    <a href="/api/" className="link">
-                                        <Item>
-                                            <Typography className="text _link">
-                                                RestAPI
-                                            </Typography>
-                                        </Item>
-                                    </a>
                                 </Container>
                             </div>
                             {user &&
                             <div className="user section _desctop" wrap="nowrap">
                                 <div className="user__info">
-                                    <Tooltip title={user.name} aria-label={user.name}>
-                                        <Typography className="paragraph _small _ellipsis">
-                                            {user.name}
-                                        </Typography>
-                                    </Tooltip>
-                                    <Tooltip title={user.email} aria-label={user.email}>
-                                        <Typography className="paragraph _small _ellipsis _email">
-                                            {user.email}
-                                        </Typography>
-                                    </Tooltip>
+                                    <Typography className="paragraph _small _ellipsis">
+                                        {user.name}
+                                    </Typography>
+                                    <Typography className="paragraph _small _ellipsis _email">
+                                        {user.role}
+                                    </Typography>
                                 </div>
-                                <div>
-                                    <img className="user__image" src={user.photo} alt=""/>
-                                </div>
-                                <div className="user__icon">
-                                    SOut
-                                </div>
+                                <IconButton className="user__icon"
+                                            aria-label="Exit"
+                                >
+                                    <ExitToApp />
+                                </IconButton>
                             </div>
                             }
                             <div className="section _mobile">
@@ -85,7 +83,7 @@ const Navtop = function(props) {
                                             aria-haspopup="true"
                                             onClick={anchorMenu.onOpen}
                                 >
-                                    <div>icon</div>
+                                    <MenuIcon />
                                 </IconButton>
                             </div>
                         </Toolbar>
@@ -105,27 +103,18 @@ const Navtop = function(props) {
                     className="mobile-menu"
                 >
                     <List component="nav">
-                        {user ?
-                            <div className="user">
-                                <div>
-                                    <img className="user__image" src={user.photo} alt=""/>
-                                </div>
-                                <div className="user__info">
-                                    <Typography className="paragraph _name _ellipsis">
-                                        {user.name}
-                                    </Typography>
-                                    <Typography className="paragraph _small _ellipsis _email">
-                                        {user.email}
-                                    </Typography>
-                                </div>
+                        {user &&
+                        <div className="user">
+                            <div className="user__info">
+                                <Typography className="paragraph _name _ellipsis">
+                                    {user.name}
+                                </Typography>
+                                <Typography className="paragraph _small _ellipsis _email">
+                                    {user.role}
+                                </Typography>
                             </div>
-                            : ''
+                        </div>
                         }
-                        <a href="/api/" className="link">
-                            <ListItem button className="">
-                                <ListItemText primary="RestAPI" />
-                            </ListItem>
-                        </a>
                         <Divider />
                         {menu.map((item, index) => (
                             <Link
