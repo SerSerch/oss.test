@@ -4,6 +4,7 @@ const path = require('path'),
     UglifyJsPlugin = require("uglifyjs-webpack-plugin"),
     OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
     tinyPngWebpackPlugin = require('tinypng-webpack-plugin'),
+    SpriteLoaderPlugin = require( 'svg-sprite-loader/plugin' ),
     devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -37,6 +38,29 @@ module.exports = {
                             name: 'img/[hash].[ext]'
                         }
                     }
+                ]
+            },
+            {
+                test: /\.(svg)$/,
+                use: [
+                    {
+                        loader: 'svg-sprite-loader',
+                        options: {
+                            extract: true,
+                            spriteFilename: 'img/sprite-[hash:6].svg'
+                        }
+                    },
+                    {
+                        loader: 'svgo-loader',
+                        options: {
+                            plugins: [
+                                { removeTitle: true },
+                                { convertColors: { shorthex: false } },
+                                { convertPathData: false }
+                            ]
+                        }
+                    },
+                    'svg-transform-loader',
                 ]
             },
             {
@@ -89,6 +113,7 @@ module.exports = {
         }),
         new tinyPngWebpackPlugin({
             key:"btm7DN0jvTPrxkd0jMGLvFpBG38NBbKy"
-        })
+        }),
+        new SpriteLoaderPlugin(),
     ],
 };
