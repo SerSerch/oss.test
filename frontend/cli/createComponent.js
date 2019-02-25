@@ -15,11 +15,11 @@ import React, {Fragment, useState, useEffect} from 'react';
 
 const ${componentName} = function(props) {
     //props
-    const [myProps] = props;
+    const {myProps} = props;
     //state
     const [name, setName] = useState(null);
     //mount and update effect
-    useEffect(function {
+    useEffect(function() {
         /* DidMount */
         
         return function() {
