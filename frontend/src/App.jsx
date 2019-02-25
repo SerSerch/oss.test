@@ -1,7 +1,7 @@
 import React from 'react';
 import routes from './routes';
 import { Switch, Route } from 'react-router-dom';
-import Navtop from 'components/Navtop';
+import Navtop from 'containers/NavtopContainer';
 import Footer from 'components/Footer';
 import menu from './menu';
 
