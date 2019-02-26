@@ -4,8 +4,7 @@ const path = require('path'),
     UglifyJsPlugin = require("uglifyjs-webpack-plugin"),
     OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
     tinyPngWebpackPlugin = require('tinypng-webpack-plugin'),
-    SpriteLoaderPlugin = require( 'svg-sprite-loader/plugin' ),
-    devMode = process.env.NODE_ENV !== 'production';
+    SpriteLoaderPlugin = require( 'svg-sprite-loader/plugin' );
 
 module.exports = {
     entry:{
@@ -73,7 +72,7 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'postcss-loader',
                     'sass-loader',

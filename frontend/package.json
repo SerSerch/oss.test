@@ -7,7 +7,7 @@
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
     "json": "json-server --watch db.json --port 3000",
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --mode development --open | json-server --watch db.json --port 3000",
     "cc": "node cli/createComponent.js --name",
     "ccc": "node cli/createContainer.js --name",
     "test": "echo \"Error: no test specified\" && exit 1"
