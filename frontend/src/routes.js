@@ -1,5 +1,6 @@
 import Hello from 'components/Hello';
 import Home from 'layouts/Home';
+import AddProduct from 'layouts/AddProduct';
 
 export default [
     {
@@ -9,7 +10,7 @@ export default [
     },
     {
         path: '/add-product',
-        component: Hello,
+        component: AddProduct,
         exact: true
     },
     {

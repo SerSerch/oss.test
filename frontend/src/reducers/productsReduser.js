@@ -4,6 +4,7 @@ import {
     getProductsAction,
     deleteAllProductsAction,
     deleteProductAction,
+    createProductAction,
 } from 'actions/productsAction';
 
 const initialState = {
@@ -57,6 +58,22 @@ export default handleActions({
                 error: action.payload.error,
             };
         }
+        return res;
+    },
+    [createProductAction]: (state, action) => {
+        let res = {};
+
+        if (!action.payload.error && action.payload.id) {
+            res = {
+                allProducts: state.allProducts.concat(action.payload),
+            };
+        } else {
+            res = {
+                ...state,
+                error: action.payload.error,
+            };
+        }
+
         return res;
     },
 
