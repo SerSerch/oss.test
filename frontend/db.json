@@ -1,8 +1,4 @@
 {
-  "role": {
-    "0": "user",
-    "1": "admin"
-  },
   "users": [
     {
       "id": 1,
@@ -16,35 +12,35 @@
     }
   ],
   "products": [
-     {
-         "id": 1,
-         "autor": 1,
-         "name": "My product 1",
-         "image": "/img/product.jpg",
-         "description": "Small good",
-         "price": 500,
-         "currency": "$",
-         "date": "2019-02-22T15:44:02.101Z"
-     },
-     {
-         "id": 2,
-         "autor": 1,
-         "name": "My product 1",
-         "image": "/img/product.jpg",
-         "description": "Small good",
-         "price": 500,
-         "currency": "$",
-         "date": "2019-02-22T15:44:02.101Z"
-     },
-     {
-         "id": 3,
-         "autor": 1,
-         "name": "My product 1",
-         "image": "/img/product.jpg",
-         "description": "Small good",
-         "price": 500,
-         "currency": "$",
-         "date": "2019-02-22T15:44:02.101Z"
-     }
+    {
+      "autor": 1,
+      "name": "Product name",
+      "image": "/img/product.jpg",
+      "description": "Small good",
+      "price": "700.00",
+      "currency": "$",
+      "date": "2019-02-26T00:25:11.026Z",
+      "id": 1
+    },
+    {
+      "autor": 1,
+      "name": "Product name",
+      "image": "/img/product.jpg",
+      "description": "Small good",
+      "price": "700.00",
+      "currency": "$",
+      "date": "2019-02-26T00:25:12.424Z",
+      "id": 2
+    },
+    {
+      "autor": 1,
+      "name": "Product name",
+      "image": "/img/product.jpg",
+      "description": "Small good",
+      "price": "700.00",
+      "currency": "$",
+      "date": "2019-02-26T00:25:13.888Z",
+      "id": 3
+    }
   ]
 }
