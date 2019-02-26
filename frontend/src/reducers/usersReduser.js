@@ -11,7 +11,20 @@ import {
 const initialState = {
     isLogined: false,
     user: {},
-    error: "",
+    role: '',
+    error: '',
+};
+
+const getRole = function(user) {
+    let role = '';
+    switch (user && user.role) {
+        case (1):
+            role = 'admin';
+            break;
+        default:
+            role = 'user';
+    }
+    return role;
 };
 
 export default handleActions({
@@ -23,6 +36,7 @@ export default handleActions({
             res = {
                 isLogined: true,
                 user: action.payload[0],
+                role: getRole(action.payload[0]),
             };
         } else {
             res = {
@@ -40,6 +54,7 @@ export default handleActions({
             res = {
                 isLogined: true,
                 user: action.payload,
+                role: getRole(action.payload),
             };
         } else {
             res = {
@@ -55,6 +70,7 @@ export default handleActions({
             localStorage.user = JSON.stringify(action.payload);
             res = {
                 user: action.payload,
+                role: getRole(action.payload),
             };
         } else {
             res = {
@@ -74,6 +90,7 @@ export default handleActions({
             res = {
                 isLogined: false,
                 user: {},
+                role: getRole(),
             };
         } else {
             res = {
@@ -89,6 +106,7 @@ export default handleActions({
             res = {
                 isLogined: true,
                 user: action.payload,
+                role: getRole(action.payload),
             };
         } else {
             res = {

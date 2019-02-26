@@ -17,7 +17,8 @@
 
 .logo {
   &._navtop {
-    height: 25px;
+    height: 42px;
+    width: 144px;
   }
 }
 
@@ -30,10 +31,15 @@
   justify-content: right;
   width: 225px;
   &__info {
-    width: 130px;
+    width: 100%;
     padding-right: 11px;
     box-sizing: border-box;
     text-align: right;
+    &._right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
   }
 }
 

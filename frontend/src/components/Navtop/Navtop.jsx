@@ -26,6 +26,7 @@ const Navtop = function(props) {
     const {
         menu,
         user,
+        role,
         isLogined,
         userSignIn,
         userSignOut,
@@ -38,6 +39,14 @@ const Navtop = function(props) {
         userSignAuth();
         getAllProducts();
     }, []);
+
+    const signIn = function () {
+        const userParams = [
+            'login=serserch'
+        ];
+
+        userSignIn(userParams);
+    };
 
     return (
         <Fragment>
@@ -81,7 +90,7 @@ const Navtop = function(props) {
                                                 {user.login}
                                             </Typography>
                                             <Typography className="paragraph _small _ellipsis _email _s">
-                                                {user.role}
+                                                {role}
                                             </Typography>
                                         </div>
                                         <IconButton className="user__button"
@@ -94,11 +103,14 @@ const Navtop = function(props) {
                                     </Fragment>
                                     :
                                     <Fragment>
-                                        <div className="user__info">
+                                        <div className="user__info _right">
+                                            <Typography className="paragraph _ellipsis _s">
+                                                Signin
+                                            </Typography>
                                         </div>
                                         <IconButton className="user__button"
                                                     aria-label="Signin"
-                                                    onClick={userSignIn}
+                                                    onClick={signIn}
                                                     color="secondary"
                                         >
                                             <ExitToApp/>
@@ -154,11 +166,14 @@ const Navtop = function(props) {
                                 </Fragment>
                                 :
                                 <Fragment>
-                                    <div className="user__info">
+                                    <div className="user__info _right">
+                                        <Typography className="paragraph _ellipsis">
+                                            Signin
+                                        </Typography>
                                     </div>
                                     <IconButton className="user__button"
                                                 aria-label="Signin"
-                                                onClick={userSignIn}
+                                                onClick={signIn}
                                     >
                                         <ExitToApp/>
                                     </IconButton>
