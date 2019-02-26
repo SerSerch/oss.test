@@ -1,0 +1,56 @@
+.menu {
+  &__caption._small {
+    flex-grow: 1;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+  }
+  &__button._left {
+    margin-left: -16px;
+    margin-right: 10px;
+  }
+  &__button._right {
+    margin-right: -16px;
+  }
+}
+
+.logo {
+  &._navtop {
+    height: 42px;
+    width: 144px;
+  }
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.user {
+  display: flex;
+  justify-content: right;
+  width: 225px;
+  &__info {
+    width: 100%;
+    padding-right: 11px;
+    box-sizing: border-box;
+    text-align: right;
+    &._right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.paragraph {
+  &._email {
+    color: #8d8c8c;
+  }
+}
+
+.mobile-menu {
+  width: 250px;
+}
+
+@import "media";

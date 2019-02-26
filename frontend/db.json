@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "serserch",
+      "role": 1
+    },
+    {
+      "id": 2,
+      "login": "user",
+      "role": 0
+    }
+  ],
+  "products": [
+    {
+      "autor": 1,
+      "name": "Product name",
+      "image": "/img/product.jpg",
+      "description": "Small good",
+      "price": "700.00",
+      "currency": "$",
+      "date": "2019-02-26T00:25:11.026Z",
+      "id": 1
+    },
+    {
+      "autor": 1,
+      "name": "Product name",
+      "image": "/img/product.jpg",
+      "description": "Small good",
+      "price": "700.00",
+      "currency": "$",
+      "date": "2019-02-26T00:25:12.424Z",
+      "id": 2
+    },
+    {
+      "autor": 1,
+      "name": "Product name",
+      "image": "/img/product.jpg",
+      "description": "Small good",
+      "price": "700.00",
+      "currency": "$",
+      "date": "2019-02-26T00:25:13.888Z",
+      "id": 3
+    }
+  ]
+}

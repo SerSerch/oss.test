@@ -1,0 +1,27 @@
+@media (min-width: 1025px) {
+  .section {
+    &._mobile {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    &._desctop {
+      display: none;
+    }
+  }
+  .user {
+    width: 100%;
+    padding: 21px 15px;
+    box-sizing: border-box;
+    &__info {
+      text-align: left;
+    }
+    &__image {
+      width: 68px;
+      height: 68px;
+    }
+  }
+}

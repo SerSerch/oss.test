@@ -1,0 +1,55 @@
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+  1170 full 2k
+*/
+
+@media (min-width: 1281px) {
+  .content-box {
+    max-width: 1170px;
+  }
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+  960 desktops
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .content-box {
+    max-width: 960px;
+  }
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+  760 tablets
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .content-box {
+    max-width: 760px;
+  }
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+  760 tablet landscape
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 320px to 767px
+  320 mobile
+*/
+
+@media (min-width: 320px) and (max-width: 767px) {
+
+}
