@@ -15,7 +15,7 @@ const ProductsInfo = function(props) {
         deleteAllProducts
     } = props;
 
-    let sumPriceProducts = quantityProducts && products.map(i => i.price).reduce((accum, value) => accum + value);
+    let sumPriceProducts = quantityProducts && products.map(i => parseFloat(i.price)).reduce((accum, value) => accum + value);
 
     return (
         <Container box>
