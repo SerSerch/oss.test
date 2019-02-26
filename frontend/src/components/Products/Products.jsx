@@ -5,6 +5,8 @@ import React from 'react';
 import {Container, Item} from 'components/Content';
 import Card from 'components/Card';
 
+import DefaultProductImg from './img/product.jpg';
+
 const Products = function(props) {
     const {
         role,
@@ -14,11 +16,11 @@ const Products = function(props) {
 
     const deletedProduct = function(e) {
         deleteProduct(e.currentTarget.dataset.id)
-    }
+    };
 
     return (
         <Container box>
-            {products.map((i, idx) => (
+            {products && products.map((i, idx) => (
                     <Item key={idx} xs={12} md={6} lg={4} >
                         <Card
                             id={i.id}
@@ -26,7 +28,7 @@ const Products = function(props) {
                             key={idx}
                             role={role}
                             title={i.name}
-                            image={i.image}
+                            image={DefaultProductImg}
                             description={i.description}
                             price={i.price}
                         />
